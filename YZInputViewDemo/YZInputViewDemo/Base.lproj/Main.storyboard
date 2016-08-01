@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duu-fl-Co6" userLabel="Bottom">
+                                <rect key="frame" x="0.0" y="632" width="375" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oS5-jy-gci">
+                                        <rect key="frame" x="5" y="2" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="UQN-au-UAb"/>
+                                            <constraint firstAttribute="height" constant="30" id="bpK-tg-1Ed"/>
+                                        </constraints>
+                                        <state key="normal" image="sound"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Il-ts-6iQ">
+                                        <rect key="frame" x="340" y="2" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="DzF-C1-f3e"/>
+                                            <constraint firstAttribute="width" constant="30" id="IPc-cX-FIm"/>
+                                        </constraints>
+                                        <state key="normal" image="plus"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ef-Kk-n35">
+                                        <rect key="frame" x="300" y="2" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="aOB-Fw-tMW"/>
+                                            <constraint firstAttribute="width" constant="30" id="e26-JM-q0j"/>
+                                        </constraints>
+                                        <state key="normal" image="smail"/>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jcz-cV-kam" customClass="YZInputView">
+                                        <rect key="frame" x="45" y="5" width="250" height="25"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Jcz-cV-kam" firstAttribute="leading" secondItem="oS5-jy-gci" secondAttribute="trailing" constant="10" id="4QF-PL-kEE"/>
+                                    <constraint firstItem="oS5-jy-gci" firstAttribute="centerY" secondItem="duu-fl-Co6" secondAttribute="centerY" id="7xb-nH-It4"/>
+                                    <constraint firstItem="oS5-jy-gci" firstAttribute="leading" secondItem="duu-fl-Co6" secondAttribute="leading" constant="5" id="Gqq-1d-Go3"/>
+                                    <constraint firstItem="9Ef-Kk-n35" firstAttribute="leading" secondItem="Jcz-cV-kam" secondAttribute="trailing" constant="5" id="HEI-Dp-yfw"/>
+                                    <constraint firstItem="9Ef-Kk-n35" firstAttribute="centerY" secondItem="duu-fl-Co6" secondAttribute="centerY" id="KEj-c8-db5"/>
+                                    <constraint firstItem="3Il-ts-6iQ" firstAttribute="centerY" secondItem="duu-fl-Co6" secondAttribute="centerY" id="X1Q-cP-aHv"/>
+                                    <constraint firstAttribute="height" constant="35" id="YaA-hr-IGp"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Il-ts-6iQ" secondAttribute="trailing" constant="5" id="bg3-ms-IYK"/>
+                                    <constraint firstItem="Jcz-cV-kam" firstAttribute="top" secondItem="duu-fl-Co6" secondAttribute="top" constant="5" id="iQH-oe-kJa"/>
+                                    <constraint firstAttribute="bottom" secondItem="oS5-jy-gci" secondAttribute="bottom" id="kK6-fl-0ku"/>
+                                    <constraint firstItem="3Il-ts-6iQ" firstAttribute="leading" secondItem="9Ef-Kk-n35" secondAttribute="trailing" constant="10" id="vDG-Dw-6LH"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jcz-cV-kam" secondAttribute="bottom" constant="5" id="zem-wV-BT8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kK6-fl-0ku"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="duu-fl-Co6" secondAttribute="trailing" id="a2I-DW-b59"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="duu-fl-Co6" secondAttribute="bottom" id="lwD-E3-NvV"/>
+                            <constraint firstItem="duu-fl-Co6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yOP-6r-wBB"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="bottomCons" destination="lwD-E3-NvV" id="3qm-3l-mCJ"/>
+                        <outlet property="bottomHCons" destination="YaA-hr-IGp" id="m6J-gG-BMj"/>
+                        <outlet property="inputView" destination="Jcz-cV-kam" id="24X-i4-K6X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus" width="30" height="30"/>
+        <image name="smail" width="30" height="30"/>
+        <image name="sound" width="30" height="30"/>
+    </resources>
+</document>
