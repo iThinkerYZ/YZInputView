@@ -18,12 +18,12 @@
 /**
  *  文字高度
  */
-@property (nonatomic, assign) CGFloat textH;
+@property (nonatomic, assign) NSInteger textH;
 
 /**
- *  文字高度改变次数
+ *  文字最大高度
  */
-@property (nonatomic, assign) NSInteger textHChangeCount;
+@property (nonatomic, assign) NSInteger maxTextH;
 
 @end
 
@@ -61,7 +61,6 @@
 
 - (void)setup
 {
-    _textHChangeCount = 1;
     self.scrollEnabled = NO;
     self.scrollsToTop = NO;
     self.showsHorizontalScrollIndicator = NO;
@@ -70,6 +69,15 @@
     self.layer.cornerRadius = 5;
     self.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self];
+}
+
+- (void)setMaxNumberOfLines:(NSUInteger)maxNumberOfLines
+{
+    _maxNumberOfLines = maxNumberOfLines;
+    
+    // 计算最大高度 = (每行高度 * 总行数 + 文字上下间距)
+    _maxTextH = ceil(self.font.lineHeight * maxNumberOfLines + self.textContainerInset.top + self.textContainerInset.bottom);
+    
 }
 
 - (void)setCornerRadius:(NSUInteger)cornerRadius
@@ -108,21 +116,16 @@
     
     if (_textH != height) { // 高度不一样，就改变了高度
         
+        // 最大高度，可以滚动
+        self.scrollEnabled = height > _maxTextH && _maxTextH > 0;
+        
         _textH = height;
         
-        if (_textHChangeCount > _maxNumberOfLines && _maxNumberOfLines > 0) {
-            // 达到最大行数
-            self.scrollEnabled = YES;
-            return;
-        }
-        
-        if (_yz_textHeightChangeBlock) {
-            _yz_textHeightChangeBlock(self.text,_textH);
+        if (_yz_textHeightChangeBlock && self.scrollEnabled == NO) {
+            _yz_textHeightChangeBlock(self.text,height);
             [self.superview layoutIfNeeded];
             self.placeholderView.frame = self.bounds;
         }
-        
-        _textHChangeCount++;
     }
 }
 
