@@ -45,6 +45,12 @@
     _inputView.maxNumberOfLines = 4;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    //test
+    _inputView.text = @"Hello This is test，Hello This is test，Hello This is test，Hello This is test，Hello This is test，Hello This is test，Hello This is test，Hello This is test，Hello This is test，Hello This is test";
+}
+
 // 键盘弹出会调用
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {

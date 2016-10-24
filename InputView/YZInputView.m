@@ -48,6 +48,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     [self setup];
 }
 
@@ -69,6 +70,7 @@
     self.layer.cornerRadius = 5;
     self.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self];
+    [self addObserver:self forKeyPath:@"text" options:(NSKeyValueObservingOptionNew) context:nil];
 }
 
 - (void)setMaxNumberOfLines:(NSUInteger)maxNumberOfLines
@@ -129,9 +131,16 @@
     }
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"text"] && !self.isFirstResponder) {
+        [self textDidChange];
+    }
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self removeObserver:self forKeyPath:@"text"];
 }
 
 @end
